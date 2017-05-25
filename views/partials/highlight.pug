@@ -1,12 +1,13 @@
-- var highlight = slice.value.toArray()[0]
+- var highlight = slice.value[0]
 
 section.highlight.content-section
   .highlight-left
-    != highlight.getStructuredText("title").asHtml(ctx.linkResolver)
-    != highlight.getStructuredText("headline").asHtml(ctx.linkResolver)
-    if ( highlight.getLink("link") && highlight.getText("linkText") )
+    != RichText.asHtml(highlight.title, ctx.linkResolver)
+    != RichText.asHtml(highlight.headline, ctx.linkResolver)
+    if ( highlight.link && highlight.linkText )
       p
-        a(href=highlight.getLink("link").url(ctx.linkResolver)) !{highlight.getText("linkText")}
+        - var linkUrl = highlight.link.linkType === 'Document' ? ctx.linkResolver(highlight.link) : highlight.link.url
+        a(href=linkUrl) !{highlight.linkText}
     
   .highlight-right
-    img(src=highlight.getImage("image").url)
+    img(src=highlight.image.url)

@@ -1,13 +1,14 @@
 section.gallery.content-section
 
   //- Loop through the gallery items
-  each galleryItem in slice.value.toArray()
+  each galleryItem in slice.value
   
     .gallery-item
-      img(src=galleryItem.getImage("image").url)
-      != galleryItem.getStructuredText("description").asHtml(ctx.linkResolver)
+      img(src=galleryItem.image.url)
+      != RichText.asHtml(galleryItem.description, ctx.linkResolver)
       
-      if ( galleryItem.getLink("link") && galleryItem.getText("linkText") )
+      if ( galleryItem.link && galleryItem.linkText )
+        - var linkUrl = galleryItem.link.linkType === 'Document' ? ctx.linkResolver(galleryItem.link) : galleryItem.link.url
         p.gallery-link
-          a(href=galleryItem.getLink("link").url(ctx.linkResolver)) !{galleryItem.getText("linkText")}
+          a(href=linkUrl) !{galleryItem.linkText}
 

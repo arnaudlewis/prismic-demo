@@ -5,7 +5,8 @@ header.site-header
   if menuContent != null
     nav
       ul
-        each link in menuContent.getGroup('menu.menuLinks').toArray()
+        each linkItem in menuContent.menuLinks
           li
-            a(href=link.getLink("link").url(ctx.linkResolver))
-              != link.getText("label")
+            - var linkUrl = linkItem.link.linkType === 'Document' ? ctx.linkResolver(linkItem.link) : linkItem.link.url
+            a(href=linkUrl)
+              != linkItem.label
