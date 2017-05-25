@@ -1,0 +1,138 @@
+{
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "placeholder" : "meaningful-unique-identifier...",
+        "label" : "Unique ID"
+      }
+    },
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Page content",
+      "config" : {
+        "labels" : {
+          "textSection" : [ {
+            "name" : "1col",
+            "display" : "1 Column"
+          }, {
+            "name" : "2col",
+            "display" : "2 Columns"
+          } ]
+        },
+        "choices" : {
+          "heading" : {
+            "type" : "StructuredText",
+            "fieldset" : "Section Heading",
+            "config" : {
+              "placeholder" : "Text...",
+              "single" : "heading1, heading2, heading3"
+            }
+          },
+          "textSection" : {
+            "type" : "StructuredText",
+            "fieldset" : "Text Section",
+            "config" : {
+              "placeholder" : "Text...",
+              "labels" : [ "quote" ]
+            }
+          },
+          "fullWidthImage" : {
+            "type" : "Image",
+            "fieldset" : "Full Width Image",
+            "config" : {
+              "constraint" : {
+                "width" : 980,
+                "height" : 300
+              }
+            }
+          },
+          "highlight" : {
+            "type" : "Group",
+            "fieldset" : "Highlight",
+            "config" : {
+              "repeat" : false,
+              "fields" : {
+                "title" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "placeholder" : "Highlight Title",
+                    "single" : "heading2"
+                  }
+                },
+                "headline" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "placeholder" : "Highlight Headline",
+                    "single" : "heading3"
+                  }
+                },
+                "link" : {
+                  "type" : "Link",
+                  "fieldset" : "Optional Link",
+                  "config" : {
+                    "placeholder" : "Optional Link"
+                  }
+                },
+                "linkText" : {
+                  "type" : "Text",
+                  "config" : {
+                    "placeholder" : "Optional Link Text"
+                  }
+                },
+                "image" : {
+                  "type" : "Image",
+                  "config" : {
+                    "constraint" : {
+                      "width" : 727,
+                      "height" : 402
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "gallery" : {
+            "type" : "Group",
+            "fieldset" : "Image Gallery",
+            "config" : {
+              "repeat" : true,
+              "fields" : {
+                "image" : {
+                  "type" : "Image",
+                  "config" : {
+                    "placeholder" : "Image",
+                    "constraint" : {
+                      "width" : 727,
+                      "height" : 402
+                    }
+                  }
+                },
+                "description" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "placeholder" : "Image Description...",
+                    "single" : "paragraph"
+                  }
+                },
+                "link" : {
+                  "type" : "Link",
+                  "fieldset" : "Optional Link",
+                  "config" : {
+                    "placeholder" : "Optional Link"
+                  }
+                },
+                "linkText" : {
+                  "type" : "Text",
+                  "config" : {
+                    "placeholder" : "Optional Link Text"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
