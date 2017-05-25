@@ -1,8 +1,9 @@
 const Prismic = require('prismic-javascript');
-const { RichText } = require('prismic-dom');
+const { RichText, Link } = require('prismic-dom');
 const app = require('./config');
 const config = require('./prismic-configuration');
 const PORT = app.get('port');
+const Cookies = require('cookies');
 
 app.listen(PORT, () => {
   console.log(`Go to browser: http://localhost:${PORT}`);
@@ -17,13 +18,15 @@ app.use((req, res, next) => {
   };
   //put RichText Helper from Prismic DOM to simplify convert RichText from json to html
   res.locals.RichText = RichText;
+  //put Link helper from Prismic DOM to simplify getting url from link
+  res.locals.Link = Link;
 
   Prismic.api(config.apiEndpoint, {
     accessToken: config.accessToken,
     req
   })
   .then((api) => {
-    req.prismic.api = api;
+    req.prismic = { api };
     //continue spreading request
     next();
   })
@@ -34,7 +37,7 @@ app.use((req, res, next) => {
 });
 
 //Middleware that query menu in prismic for each GET request
-app.get((req, res, next) => {
+app.use((req, res, next) => {
   req.prismic.api.getSingle("menu")
   .then((menu) => {
     res.locals.menu = menu;
@@ -42,7 +45,7 @@ app.get((req, res, next) => {
   })
   .catch((err) => {
     next(`Error getting menu from prismic: ${error.message}`);
-  })
+  });
 });
 
 // Route for the homepage
@@ -73,7 +76,7 @@ app.get('/page/:uid', (req, res, next) => {
 app.get('/preview', (req, res) => {
   const token = req.query.token;
   if (token) {
-    req.prismic.api.previewSession(token, PrismicConfig.linkResolver, '/')
+    req.prismic.api.previewSession(token, config.linkResolver, '/')
     .then((url) => {
       const cookies = new Cookies(req, res);
       cookies.set(Prismic.previewCookie, token, { maxAge: 30 * 60 * 1000, path: '/', httpOnly: false });

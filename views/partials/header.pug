@@ -1,12 +1,10 @@
 header.site-header
   a(href='./')
-    .logo Example Site
+    .logo Unknown
   
-  if menuContent != null
-    nav
-      ul
-        each linkItem in menuContent.menuLinks
-          li
-            - var linkUrl = linkItem.link.linkType === 'Document' ? ctx.linkResolver(linkItem.link) : linkItem.link.url
-            a(href=linkUrl)
-              != linkItem.label
+  nav
+    ul
+      each linkItem in menu.data.menuLinks
+        li
+          a(href=Link.url(linkItem.link, ctx.linkResolver))
+            != linkItem.label

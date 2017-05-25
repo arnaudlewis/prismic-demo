@@ -8,7 +8,6 @@ section.gallery.content-section
       != RichText.asHtml(galleryItem.description, ctx.linkResolver)
       
       if ( galleryItem.link && galleryItem.linkText )
-        - var linkUrl = galleryItem.link.linkType === 'Document' ? ctx.linkResolver(galleryItem.link) : galleryItem.link.url
         p.gallery-link
-          a(href=linkUrl) !{galleryItem.linkText}
+          a(href=Link.url(galleryItem.link, ctx.linkResolver)) !{galleryItem.linkText}
 

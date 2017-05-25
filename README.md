@@ -10,6 +10,7 @@ It's meant to work with API v2 libs here:
 [1. Installation](#installation)
 --------------------------------
 
+> [Prismic CLI](#prismic-cli) <br />
 > [NPM](#npm) <br />
 > [Start](#start) <br />
 > [Dev](#dev) <br />
@@ -44,6 +45,17 @@ It's meant to work with API v2 libs here:
 ===================================================
 
 ### Installation
+
+#### Prismic CLI
+- install prismic CLI
+```sh
+npm install -g prismic-cli
+```
+
+- create project with prismic theme:
+```sh
+prismic theme https://github.com/arnaudlewis/prismic-demo
+```
 
 #### NPM
 

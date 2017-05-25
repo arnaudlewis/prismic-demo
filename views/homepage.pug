@@ -6,19 +6,18 @@ block prepend body
     include ./partials/header.pug
     
     -// Homepage Banner Section
-    section.homepage-banner(style='background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(' + page.data.backgroundImage.url + ')')
+    section.homepage-banner(style='background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(' + home.data.backgroundImage.url + ')')
       .banner-content.container
-        h2.banner-title !{page.data.title}
-        p.banner-description !{page.data.tagline}
-        if ( page.data.buttonLink && page.data.buttonText )
-          - var linkUrl = page.data.buttonLink.linkType === 'Document' ? ctx.linkResolver(page.data.buttonLink) : page.data.buttonLink.url
-          a.banner-button(href=linkUrl) !{page.data.buttonText}
+        h2.banner-title !{RichText.asText(home.data.title)}
+        p.banner-description !{RichText.asHtml(home.data.tagline, ctx.linkResolver)}
+        if ( home.data.buttonLink && home.data.buttonText )
+          a.banner-button(href=Link.url(home.data.buttonLink, ctx.linkResolver)) !{home.data.buttonText}
     
     -// Content Section
     div.container
     
       -// Display the slices    
-      for slice in page.data.body
+      for slice in home.data.body
         case slice.slice_type
           when 'heading'
             include ./partials/heading.pug

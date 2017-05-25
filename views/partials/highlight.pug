@@ -6,8 +6,7 @@ section.highlight.content-section
     != RichText.asHtml(highlight.headline, ctx.linkResolver)
     if ( highlight.link && highlight.linkText )
       p
-        - var linkUrl = highlight.link.linkType === 'Document' ? ctx.linkResolver(highlight.link) : highlight.link.url
-        a(href=linkUrl) !{highlight.linkText}
+        a(href=Link.url(highlight.link, ctx.linkResolver)) !{highlight.linkText}
     
   .highlight-right
     img(src=highlight.image.url)

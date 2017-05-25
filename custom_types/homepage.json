@@ -1,12 +1,5 @@
 {
   "Main" : {
-    "uid" : {
-      "type" : "UID",
-      "config" : {
-        "placeholder" : "meaningful-unique-identifier...",
-        "label" : "Unique ID"
-      }
-    },
     "title" : {
       "type" : "StructuredText",
       "config" : {
