@@ -9,4 +9,4 @@ else
   - var sectionClass = "text-section-1col"
 
 section.content-section(class=sectionClass)
-  != textSection.asHtml(ctx.linkResolver)
+  != RichText.asHtml(textSection, ctx.linkResolver)
