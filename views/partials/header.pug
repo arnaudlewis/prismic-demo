@@ -4,7 +4,8 @@ header.site-header
   
   nav
     ul
-      each linkItem in menu.data.menuLinks
-        li
-          a(href=Link.url(linkItem.link, ctx.linkResolver))
-            != linkItem.label
+      if menu
+        each linkItem in menu.data.menuLinks
+          li
+            a(href=Link.url(linkItem.link, ctx.linkResolver))
+              != linkItem.label

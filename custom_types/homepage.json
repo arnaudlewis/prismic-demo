@@ -76,6 +76,73 @@
               }
             }
           },
+          "slider" : {
+            "type" : "Group",
+            "fieldset" : "Image Slider",
+            "config" : {
+              "repeat" : true,
+              "fields" : {
+                "image" : {
+                  "type" : "Image",
+                  "config" : {
+                    "constraint" : {
+                      "width" : 980,
+                      "height" : 400
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "video" : {
+            "type" : "Embed",
+            "fieldset" : "Video",
+            "config" : {
+              "label" : "Video",
+              "placeholder" : "Paste the YouTube or Vimeo url here..."
+            }
+          },
+          "banner" : {
+            "type" : "Group",
+            "fieldset" : "CTA Banner",
+            "config" : {
+              "label" : "CTA Banner",
+              "repeat" : false,
+              "fields" : {
+                "title" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "placeholder" : "Banner text...",
+                    "single" : "heading2"
+                  }
+                },
+                "link" : {
+                  "type" : "Link",
+                  "fieldset" : "Button Link",
+                  "config" : {
+                    "placeholder" : "Optional Link"
+                  }
+                },
+                "linkText" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "placeholder" : "Button Label",
+                    "single" : "paragraph"
+                  }
+                },
+                "image" : {
+                  "type" : "Image",
+                  "fieldset" : "Image large",
+                  "config" : {
+                    "constraint" : {
+                      "width" : 980,
+                      "height" : 300
+                    }
+                  }
+                }
+              }
+            }
+          },
           "highlight" : {
             "type" : "Group",
             "fieldset" : "Highlight",
