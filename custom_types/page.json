@@ -47,6 +47,24 @@
               }
             }
           },
+          "slider" : {
+            "type" : "Group",
+            "fieldset" : "Image Slider",
+            "config" : {
+              "repeat" : true,
+              "fields" : {
+                "image" : {
+                  "type" : "Image",
+                  "config" : {
+                    "constraint" : {
+                      "width" : 980,
+                      "height" : 400
+                    }
+                  }
+                }
+              }
+            }
+          },
           "video" : {
             "type" : "Embed",
             "fieldset" : "Video",
