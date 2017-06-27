@@ -84,6 +84,47 @@
               "placeholder" : "Paste the YouTube or Vimeo url here..."
             }
           },
+          "banner" : {
+            "type" : "Group",
+            "fieldset" : "CTA Banner",
+            "config" : {
+              "label" : "CTA Banner",
+              "repeat" : false,
+              "fields" : {
+                "title" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "placeholder" : "Banner text...",
+                    "single" : "heading2"
+                  }
+                },
+                "link" : {
+                  "type" : "Link",
+                  "fieldset" : "Button Link",
+                  "config" : {
+                    "placeholder" : "Optional Link"
+                  }
+                },
+                "linkText" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "placeholder" : "Button Label",
+                    "single" : "paragraph"
+                  }
+                },
+                "image" : {
+                  "type" : "Image",
+                  "fieldset" : "Image large",
+                  "config" : {
+                    "constraint" : {
+                      "width" : 980,
+                      "height" : 300
+                    }
+                  }
+                }
+              }
+            }
+          },
           "highlight" : {
             "type" : "Group",
             "fieldset" : "Highlight",

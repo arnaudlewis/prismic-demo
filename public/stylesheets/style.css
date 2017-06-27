@@ -117,11 +117,11 @@
 
 /* Text Sections */
 .text-section-2col {
-  -webkit-column-count: 2; /* Chrome, Safari, Opera */
-  -moz-column-count: 2; /* Firefox */
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
   column-count: 2;
-  -webkit-column-gap: 40px; /* Chrome, Safari, Opera */
-  -moz-column-gap: 40px; /* Firefox */
+  -webkit-column-gap: 40px;
+  -moz-column-gap: 40px;
   column-gap: 40px;
 }
 .text-section-1col img,
@@ -177,10 +177,11 @@
 }
 
 
+
 /* Video Section */
 .video {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
+  padding-bottom: 56.25%;
   padding-top: 25px;
   height: 0;
 }
@@ -193,11 +194,46 @@
 }
 
 
+
+/* Banner Section */
+.banner {
+  position: relative;
+}
+.banner .cta-text {
+  position: absolute;
+  top: 90px;
+  left: 60px;
+  max-width: 400px;
+  font-size: 30px;
+  line-height: 40px;
+  color: white;
+}
+.banner .cta-button {
+  position: absolute;
+  bottom: 90px;
+  left: 60px;
+  padding: 10px 20px;
+  font-size: 20px;
+  color: white;
+  background: #f05033;
+}
+.banner .cta-button p {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+.banner .cta-button p span.Prospect, 
+.banner .cta-button p span.Client {
+  display: none;
+}
+
+
+
 /* Gallery Section */
 .gallery {
-  display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
-  display: -ms-flexbox;  /* TWEENER - IE 10 */
-  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
   -webkit-flex-wrap: wrap;
    flex-wrap: wrap;
@@ -292,11 +328,11 @@ footer a {
     line-height: 50px;
   }
   .text-section-2col {
-    -webkit-column-count: 1; /* Chrome, Safari, Opera */
-    -moz-column-count: 1; /* Firefox */
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
     column-count: 1;
-    -webkit-column-gap: 40px; /* Chrome, Safari, Opera */
-    -moz-column-gap: 40px; /* Firefox */
+    -webkit-column-gap: 40px;
+    -moz-column-gap: 40px;
     column-gap: 40px;
   }
   .quote {
