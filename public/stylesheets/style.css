@@ -25,18 +25,17 @@
   justify-content: center;
   box-shadow: 0 2px 7px 0 rgba(90,90,140,0.40);
 }
-
-
 .wio-link img {
   display: none;
 }
-
 .wio-link:after {
   font-family: 'Material Icons';
   content: '\E3C9';
   color: white;
   font-size: 24px;
 }
+
+
 
 /* Header */
 .site-header {
@@ -73,6 +72,8 @@
   display: inline-block;
   margin-left: 40px;
 }
+
+
 
 /* Homepage Banner */
 .homepage-banner {
@@ -111,6 +112,8 @@
 .banner-button:hover {
   background: #c8c9cb;
 }
+
+
 
 /* Text Sections */
 .text-section-2col {
@@ -157,6 +160,8 @@
   content: close-quote;
 }
 
+
+
 /* Highlight Section */
 .highlight {
   position: relative;
@@ -170,6 +175,23 @@
   width: 48%;
   float: right;
 }
+
+
+/* Video Section */
+.video {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  padding-top: 25px;
+  height: 0;
+}
+.video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 
 /* Gallery Section */
 .gallery {
@@ -194,6 +216,8 @@
   text-transform: uppercase;
 }
 
+
+
 /* Footer */
 footer {
   color: #9A9A9A;
@@ -214,6 +238,8 @@ footer a {
   width: 30px;
   margin-top: 10px;
 }
+
+
 
 /* Media Queries */
 @media (max-width: 1060px) {

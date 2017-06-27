@@ -5,28 +5,33 @@ block prepend body
     
     include ./partials/header.pug
     
-    -// Homepage Banner Section
-    section.homepage-banner(style='background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(' + home.data.backgroundImage.url + ')')
-      .banner-content.container
-        h2.banner-title !{RichText.asText(home.data.title)}
-        p.banner-description !{RichText.asHtml(home.data.tagline, ctx.linkResolver)}
-        if ( home.data.buttonLink && home.data.buttonText )
-          a.banner-button(href=Link.url(home.data.buttonLink, ctx.linkResolver)) !{home.data.buttonText}
+    if home
     
-    -// Content Section
-    div.container(data-wio-id=home.id)
-    
-      -// Display the slices    
-      for slice in home.data.body
-        case slice.slice_type
-          when 'heading'
-            include ./partials/heading.pug
-          when 'textSection'
-            include ./partials/text-section.pug
-          when 'fullWidthImage'
-            include ./partials/full-width-image.pug
-          when 'highlight'
-            include ./partials/highlight.pug
-          when 'gallery'
-            include ./partials/gallery.pug
+      -// Homepage Banner Section
+      if home.data.backgroundImage
+        section.homepage-banner(style='background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(' + home.data.backgroundImage.url + ')')
+          .banner-content.container
+            h2.banner-title !{RichText.asText(home.data.title)}
+            p.banner-description !{RichText.asHtml(home.data.tagline, ctx.linkResolver)}
+            if ( home.data.buttonLink && home.data.buttonText )
+              a.banner-button(href=Link.url(home.data.buttonLink, ctx.linkResolver)) !{home.data.buttonText}
+
+      -// Content Section
+      div.container(data-wio-id=home.id)
+
+        -// Display the slices    
+        for slice in home.data.body
+          case slice.slice_type
+            when 'heading'
+              include ./partials/heading.pug
+            when 'textSection'
+              include ./partials/text-section.pug
+            when 'fullWidthImage'
+              include ./partials/full-width-image.pug
+            when 'video'
+              include ./partials/video.pug
+            when 'highlight'
+              include ./partials/highlight.pug
+            when 'gallery'
+              include ./partials/gallery.pug
 

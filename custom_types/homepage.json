@@ -76,6 +76,14 @@
               }
             }
           },
+          "video" : {
+            "type" : "Embed",
+            "fieldset" : "Video",
+            "config" : {
+              "label" : "Video",
+              "placeholder" : "Paste the YouTube or Vimeo url here..."
+            }
+          },
           "highlight" : {
             "type" : "Group",
             "fieldset" : "Highlight",
