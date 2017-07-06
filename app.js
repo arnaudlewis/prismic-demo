@@ -82,7 +82,7 @@ app.get(I18NUrl('/page/:uid'), (req, res, next) => {
   req.prismic.api.getByUID("page", uid, I18NConfig(req))
   .then((page) => {
     if(!page) res.status(404).send('page not found');
-    res.render('page', { page });
+    else res.render('page', { page });
   })
   .catch((error) => {
     next(`error when retriving page ${error.message}`);

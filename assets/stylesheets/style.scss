@@ -1,0 +1,17 @@
+//layout
+@import 'layout/header';
+@import 'layout/main';
+@import 'layout/footer';
+@import 'layout/wio-link';
+
+
+//slices
+@import 'slices/banner';
+@import 'slices/gallery';
+@import 'slices/highlight-section';
+@import 'slices/homepage-banner';
+@import 'slices/text-section';
+@import 'slices/video-section';
+
+//messy code, need to be cleaned
+@import 'toclean';

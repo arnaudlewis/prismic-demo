@@ -1,0 +1,30 @@
+.banner {
+  position: relative;
+  .cta-text {
+    position: absolute;
+    top: 90px;
+    left: 60px;
+    max-width: 400px;
+    font-size: 30px;
+    line-height: 40px;
+    color: white;
+  }
+  .cta-button {
+    position: absolute;
+    bottom: 90px;
+    left: 60px;
+    padding: 10px 20px;
+    font-size: 20px;
+    color: white;
+    background: #f05033;
+  }
+  .cta-button p {
+    display: inline;
+    margin: 0;
+    padding: 0;
+  }
+  .cta-button p span.Prospect, 
+  .cta-button p span.Client {
+    display: none;
+  }
+}

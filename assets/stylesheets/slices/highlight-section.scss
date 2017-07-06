@@ -1,0 +1,13 @@
+/* Highlight Section */
+.highlight {
+  position: relative;
+  overflow: auto;
+  .highlight-left {
+    width: 43%;
+    float: left;
+  }
+  .highlight-right {
+    width: 48%;
+    float: right;
+  }
+}

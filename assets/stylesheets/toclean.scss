@@ -1,0 +1,67 @@
+@media (max-width: 767px) {
+  h1 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  h2 {
+    font-size: 26px;
+  }
+  h3 {
+    font-size: 18px;
+  }
+  .content-section {
+    margin-bottom: 2rem;
+  } 
+  .site-header {
+    height: auto;
+  }
+  .homepage .site-header {
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+  .site-header .logo {
+    display: block;
+    text-align: center;
+  }
+  .site-header nav {
+    float: none;
+    text-align: center;
+  }
+  .site-header nav li {
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .homepage-banner {
+    margin: 0 0 40px;
+    padding: 10em 0 6em;
+  }
+  .banner-title {
+    font-size: 50px;
+    line-height: 50px;
+  }
+  .text-section-2col {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
+    -webkit-column-gap: 40px;
+    -moz-column-gap: 40px;
+    column-gap: 40px;
+  }
+  .quote {
+    font-size: 20px;
+  }
+  .gallery-item {
+    -webkit-box-flex: 100%;
+    -moz-box-flex:  100%;
+    -webkit-flex:  100%;
+    -ms-flex:  100%;
+    flex: 100%;
+  }
+  .highlight-left,
+  .highlight-right {
+    width: 100%;
+    float: none;
+  }
+}
