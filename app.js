@@ -5,6 +5,17 @@ const config = require('./prismic-configuration');
 const PORT = app.get('port');
 const Cookies = require('cookies');
 
+//Must be at the end so it go through the Prismic middleware because ended up in the final route
+const I18N = require('./i18n.json');
+//provide a lang parameter in the route
+function I18NUrl(urlPart) {
+  return `/:lang(${I18N.languages.join('|')})${urlPart || ''}`;
+}
+
+function I18NConfig(req) {
+  return {lang: req.params.lang};
+}
+
 app.listen(PORT, () => {
   console.log(`Go to browser: http://localhost:${PORT}`);
 });
@@ -37,8 +48,8 @@ app.use((req, res, next) => {
 });
 
 //Middleware that query menu in prismic for each GET request
-app.use((req, res, next) => {
-  req.prismic.api.getSingle("menu")
+app.use(I18NUrl(), (req, res, next) => {
+  req.prismic.api.getSingle("menu", I18NConfig(req))
   .then((menu) => {
     res.locals.menu = menu;
     next();
@@ -48,9 +59,14 @@ app.use((req, res, next) => {
   });
 });
 
-// Route for the homepage
+//redirect / to default language from i18n.json
 app.get('/', (req, res, next) => {
-  req.prismic.api.getSingle("homepage")
+  res.redirect(I18N.default);
+});
+
+// Route for the homepage
+app.get(I18NUrl('/'), (req, res, next) => {
+  req.prismic.api.getSingle("homepage", I18NConfig(req))
   .then((home) => {
     res.render('homepage', { home });
   })
@@ -60,17 +76,19 @@ app.get('/', (req, res, next) => {
 });
 
 // Route for pages
-app.get('/page/:uid', (req, res, next) => {
+app.get(I18NUrl('/page/:uid'), (req, res, next) => {
   const uid = req.params.uid;
   
-  req.prismic.api.getByUID("page", uid)
+  req.prismic.api.getByUID("page", uid, I18NConfig(req))
   .then((page) => {
+    if(!page) res.status(404).send('page not found');
     res.render('page', { page });
   })
   .catch((error) => {
     next(`error when retriving page ${error.message}`);
   });
 });
+
 
 //preview
 app.get('/preview', (req, res) => {
@@ -88,4 +106,3 @@ app.get('/preview', (req, res) => {
     res.send(400, 'Missing token from querystring');
   }
 });
-
