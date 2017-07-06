@@ -3,10 +3,10 @@
 - var textSection = slice.value
 
 // Add the class that defines the number of columns
-if ( textSectionSlice.label )
-  - var sectionClass = "text-section-" + textSectionSlice.label
+if ( slice.slice_label )
+  - var sectionClass = "text-section-" + slice.slice_label
 else 
   - var sectionClass = "text-section-1col"
 
 section.content-section(class=sectionClass)
-  != textSection.asHtml(ctx.linkResolver)
+  != RichText.asHtml(textSection, ctx.linkResolver)
