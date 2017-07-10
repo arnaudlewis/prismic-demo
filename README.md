@@ -39,10 +39,13 @@ It's meant to work with API v2 libs here:
 > [GeoPoint](#geopoint) <br />
 > [Slices](#slices) <br />
 
-[4. Implement I18N](#implement-i18n)
+[4. Contribute](#contribute)
 -----------------------------------------------------
 
-[5. License](#license)
+[5. Implement I18N](#implement-i18n)
+-----------------------------------------------------
+
+[6. License](#license)
 -----------------------------------------------------
 
 ===================================================
@@ -496,6 +499,42 @@ doc.contentAsSlices.map((slice) => {
 })
 
 ```
+
+### Contribute
+
+#### Run the project
+
+Install dependencies:
+
+```sh
+npm install
+```
+
+Run the project in standard mode:
+
+```sh
+npm start
+```
+
+Run the project in dev mode: (start nodeJS Server + build sass files)
+```sh
+npm run dev
+```
+
+#### Stylesheets
+
+Stylesheets are written with the preprocessor sass in `scss` format.
+They are localized in `./assets/stylesheets`.
+You must split each slice in a file to simplify modularity and public sharing.
+
+#### Javascript
+Since there is no complex javascript required yet, you only have one file `./public/javascript/main.js` to interact directly with the DOM and make any js client code.
+
+#### Slices
+How to build a slice named `MyDemoSlice`:
+- add it's definition in the folder `custom_types`.
+- create a sass file in `./assets/stylesheets/slices/my-demo-slice.scss` and import it in `./assets/stylesheets/style.scss`.
+- create a pug template in `./views/slices/my-demo-slice.pug` and you can import it from any pug template.
 
 ### Implement i18n
 

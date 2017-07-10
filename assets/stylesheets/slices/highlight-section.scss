@@ -1,3 +1,5 @@
+@import '../mixins';
+
 .highlight-section {
   margin-bottom: 80px;
   
@@ -36,15 +38,7 @@
     }
     
     .action {
-      border: 3px solid #e55512;
-      display: inline-block;
-      padding: 10px 30px;
-      a {
-        font-size: 16px;
-        font-weight: 700;
-        text-transform: uppercase;
-        color: #e55512;
-      }
+      @include button($primary: #e55512);
     }
   }
 }

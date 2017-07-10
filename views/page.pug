@@ -1,8 +1,10 @@
 extends ./layout.pug
 
-block body
+block variables
+  - var nav_class = 'dark'
+  - var wio_id = page.id
 
-  include ./partials/header.pug
+block body
 
   -// Content Section
   div.grid-container(data-wio-id=page.id)
@@ -11,18 +13,18 @@ block body
     for slice in page.data.body
       case slice.slice_type
         when 'highlight-section'
-          include ./partials/highlight-section.pug
+          include ./slices/highlight-section.pug
         when 'banner'
-          include ./partials/banner.pug
+          include ./slices/banner.pug
         when 'banner-look'
-          include ./partials/banner-look.pug
+          include ./slices/banner-look.pug
         when 'editorial-look'
-          include ./partials/editorial-look.pug
+          include ./slices/editorial-look.pug
         when 'text-section'
-          include ./partials/text-section.pug
+          include ./slices/text-section.pug
         when 'image-slider'
-          include ./partials/image-slider.pug 
+          include ./slices/image-slider.pug 
         when 'gallery'
-          include ./partials/gallery.pug
+          include ./slices/gallery.pug
         when 'video'
-          include ./partials/video.pug
+          include ./slices/video.pug

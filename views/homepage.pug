@@ -1,41 +1,42 @@
 extends ./layout.pug
 
-block prepend body
-  body.homepage
-    
-    include ./partials/header.pug
-    
-    if home
-    
-      -// Homepage Banner Section
-      if home.data.backgroundImage
-        section.homepage-banner(style='background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(' + home.data.backgroundImage.url + ')')
-          .banner-content.container
-            h2.banner-title !{RichText.asText(home.data.title)}
-            p.banner-description !{RichText.asHtml(home.data.tagline, ctx.linkResolver)}
-            if ( home.data.buttonLink && home.data.buttonText )
-              a.banner-button(href=Link.url(home.data.buttonLink, ctx.linkResolver)) !{home.data.buttonText}
+block variables
+  - var nav_class = 'light'
+  - var wio_id = home.id
 
-      -// Content Section
-      div.grid-container(data-wio-id=page.id)
+block body
+  
+  .homepage
+    
+    -// Homepage Banner Section
+    section.homepage-banner(style='background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(' + home.data.backgroundImage.url + ')')
+      .banner-content.grid-container
+        h2.banner-title
+          != RichText.asText(home.data.title)
+        != RichText.asHtml(home.data.tagline, ctx.linkResolver)
+        if ( home.data.buttonLink && home.data.buttonText )
+          a.banner-button(href=Link.url(home.data.buttonLink, ctx.linkResolver)) !{home.data.buttonText}
 
-        -// Display the slices
-        for slice in page.data.body
-          case slice.slice_type
-            when 'highlight-section'
-              include ./partials/highlight-section.pug
-            when 'banner'
-              include ./partials/banner.pug
-            when 'banner-look'
-              include ./partials/banner-look.pug
-            when 'editorial-look'
-              include ./partials/editorial-look.pug
-            when 'text-section'
-              include ./partials/text-section.pug
-            when 'image-slider'
-              include ./partials/image-slider.pug 
-            when 'gallery'
-              include ./partials/gallery.pug
-            when 'video'
-              include ./partials/video.pug
+    -// Content Section
+    div.grid-container
+
+      -// Display the slices
+      for slice in home.data.body
+        case slice.slice_type
+          when 'highlight-section'
+            include ./slices/highlight-section.pug
+          when 'banner'
+            include ./slices/banner.pug
+          when 'banner-look'
+            include ./slices/banner-look.pug
+          when 'editorial-look'
+            include ./slices/editorial-look.pug
+          when 'text-section'
+            include ./slices/text-section.pug
+          when 'image-slider'
+            include ./slices/image-slider.pug 
+          when 'gallery'
+            include ./slices/gallery.pug
+          when 'video'
+            include ./slices/video.pug
 

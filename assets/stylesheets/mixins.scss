@@ -26,3 +26,21 @@
     content: close-quote;
   }
 }
+
+@mixin button($primary, $secondary: transparent, $border: $primary, $primaryHover: $primary, $secondaryHover: $secondary, $borderHover: $primaryHover) {
+  border: 2px solid $border;
+  display: inline-block;
+  padding: 7px 30px;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $primary;
+  background: $secondary;
+  border-radius: 2px;
+
+  &:hover {
+    color: $primaryHover;
+    background-color: $secondaryHover;
+    border-color: $borderHover;
+  }
+}

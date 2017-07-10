@@ -1,3 +1,5 @@
+block variables
+
 doctype html(lang='en')
 
 head
@@ -18,7 +20,11 @@ head
   script(src="//static.cdn.prismic.io/prismic.min.js")
   script(src='/javascript/lightSlider/js/lightslider.js')
   script(src='/javascript/main.js')
-body
+
+body(data-wio-id=wio_id)
+
+  include ./layout/header.pug
+  
   block body
     
-  include ./partials/footer.pug
+  include ./layout/footer.pug
