@@ -10,8 +10,6 @@ block body
     -// Display the slices
     for slice in page.data.body
       case slice.slice_type
-        when 'heading'
-          include ./partials/heading.pug
         when 'textSection'
           include ./partials/text-section.pug
         when 'fullWidthImage'

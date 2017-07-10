@@ -1,3 +1,5 @@
+@import '../mixins';
+
 .full-width-look {
   background-size: cover;
   background-position: center;
@@ -9,14 +11,20 @@
   margin-bottom: 110px;
 
   &.dark {
-    .author, .quote:before, .quote:after, h3 {
+    .author, h3 {
       color: #484d52;
+    }
+    .quote {
+      @include quotes(#484d52);
     }
   }
 
   &.light {
-    .author, .quote:before, .quote:after, h3 {
+    .author, h3 {
       color: white;
+    }
+    .quote {
+      @include quotes(white);
     }
   }
   
@@ -46,7 +54,6 @@
   }
 
   .quote {
-    text-align: left;
     &:before, &:after {
       font-size: 60px;
     }

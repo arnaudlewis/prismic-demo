@@ -21,179 +21,305 @@
           } ]
         },
         "choices" : {
-          "heading" : {
-            "type" : "StructuredText",
-            "fieldset" : "Section Heading",
-            "config" : {
-              "placeholder" : "Text...",
-              "single" : "heading1, heading2, heading3"
-            }
-          },
-          "textSection" : {
-            "type" : "StructuredText",
-            "fieldset" : "Text Section",
-            "config" : {
-              "placeholder" : "Text...",
-              "labels" : [ "quote" ]
-            }
-          },
-          "fullWidthImage" : {
-            "type" : "Image",
-            "fieldset" : "Full Width Image",
-            "config" : {
-              "constraint" : {
-                "width" : 980,
-                "height" : 300
-              }
-            }
-          },
-          "slider" : {
-            "type" : "Group",
-            "fieldset" : "Image Slider",
-            "config" : {
-              "repeat" : true,
-              "fields" : {
-                "image" : {
-                  "type" : "Image",
-                  "config" : {
-                    "constraint" : {
-                      "width" : 980,
-                      "height" : 400
-                    }
-                  }
+          "highlight_section" : {
+            "type" : "Slice",
+            "fieldset" : "Highlight section",
+            "description" : "A section with image on one side and text with title and CTA on the other side.",
+            "icon" : "art_track",
+            "non-repeat" : {
+              "image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 1080,
+                    "height" : 1360
+                  },
+                  "thumbnails" : [ {
+                    "name" : "Mobile",
+                    "width" : 290,
+                    "height" : 360
+                  } ],
+                  "label" : "Image"
+                }
+              },
+              "title" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading2",
+                  "label" : "Title",
+                  "placeholder" : "Section's title goes here"
+                }
+              },
+              "description" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph",
+                  "label" : "Description",
+                  "placeholder" : "My description",
+                  "isEverythingAuthorized" : false,
+                  "authorized" : [ "paragraph", "text", "hard_break" ],
+                  "isAuthorized" : { }
+                }
+              },
+              "button_label" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label" : "Button label",
+                  "placeholder" : "Click Here",
+                  "isEverythingAuthorized" : false,
+                  "authorized" : [ "paragraph", "preformatted", "heading1", "heading2", "heading3", "heading4", "heading5", "heading6", "strong", "em", "hyperlink", "image", "embed", "list-item", "o-list-item", "o-list-item", "text", "hard_break" ],
+                  "isAuthorized" : { }
+                }
+              },
+              "button_link" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Button Link",
+                  "placeholder" : "Select the link"
                 }
               }
-            }
-          },
-          "video" : {
-            "type" : "Embed",
-            "fieldset" : "Video",
-            "config" : {
-              "label" : "Video",
-              "placeholder" : "Paste the YouTube or Vimeo url here..."
-            }
+            },
+            "repeat" : { }
           },
           "banner" : {
-            "type" : "Group",
+            "type" : "Slice",
             "fieldset" : "CTA Banner",
-            "config" : {
-              "label" : "CTA Banner",
-              "repeat" : false,
-              "fields" : {
-                "title" : {
-                  "type" : "StructuredText",
-                  "config" : {
-                    "placeholder" : "Banner text...",
-                    "single" : "heading2"
-                  }
-                },
-                "link" : {
-                  "type" : "Link",
-                  "fieldset" : "Button Link",
-                  "config" : {
-                    "placeholder" : "Optional Link"
-                  }
-                },
-                "linkText" : {
-                  "type" : "StructuredText",
-                  "config" : {
-                    "placeholder" : "Button Label",
-                    "single" : "paragraph"
-                  }
-                },
-                "image" : {
-                  "type" : "Image",
-                  "fieldset" : "Image large",
-                  "config" : {
-                    "constraint" : {
-                      "width" : 980,
-                      "height" : 300
-                    }
+            "description": "Embed video from any source like Youtube, Vimeo, Facebook...",
+            "icon": "ondemand_video",
+            "repeat" : {
+              "title" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "placeholder" : "Banner text...",
+                  "single" : "heading2"
+                }
+              },
+              "link" : {
+                "type" : "Link",
+                "fieldset" : "Button Link",
+                "config" : {
+                  "placeholder" : "Optional Link"
+                }
+              },
+              "linkText" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "placeholder" : "Button Label",
+                  "single" : "paragraph"
+                }
+              },
+              "image" : {
+                "type" : "Image",
+                "fieldset" : "Image large",
+                "config" : {
+                  "constraint" : {
+                    "width" : 980,
+                    "height" : 300
                   }
                 }
               }
             }
           },
-          "highlight" : {
-            "type" : "Group",
-            "fieldset" : "Highlight",
-            "config" : {
-              "repeat" : false,
-              "fields" : {
-                "title" : {
-                  "type" : "StructuredText",
-                  "config" : {
-                    "placeholder" : "Highlight Title",
-                    "single" : "heading2"
-                  }
-                },
-                "headline" : {
-                  "type" : "StructuredText",
-                  "config" : {
-                    "placeholder" : "Highlight Headline",
-                    "single" : "heading3"
-                  }
-                },
-                "link" : {
-                  "type" : "Link",
-                  "fieldset" : "Optional Link",
-                  "config" : {
-                    "placeholder" : "Optional Link"
-                  }
-                },
-                "linkText" : {
-                  "type" : "Text",
-                  "config" : {
-                    "placeholder" : "Optional Link Text"
-                  }
-                },
-                "image" : {
-                  "type" : "Image",
-                  "config" : {
-                    "constraint" : {
-                      "width" : 727,
-                      "height" : 402
-                    }
+          "banner_look" : {
+            "type" : "Slice",
+            "fieldset" : "Banner Look",
+            "description" : "A Banner with a full-width background image and a quote",
+            "icon" : "panorama_horizontal",
+            "non-repeat" : {
+              "background_image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 2000,
+                    "height" : 600
+                  },
+                  "thumbnails" : [ {
+                    "name" : "Mobile",
+                    "width" : 370,
+                    "height" : 260
+                  } ],
+                  "label" : "Background image"
+                }
+              },
+              "quote" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading3",
+                  "label" : "Quote",
+                  "placeholder" : "Designer's quote",
+                  "isEverythingAuthorized" : false,
+                  "authorized" : [ "heading3", "text" ],
+                  "isAuthorized" : { }
+                }
+              },
+              "quote_author" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "paragraph",
+                  "label" : "Quote author",
+                  "placeholder" : "Fashion designer - Jane Doe",
+                  "isEverythingAuthorized" : false,
+                  "authorized" : [ "paragraph", "text" ],
+                  "isAuthorized" : { }
+                }
+              },
+              "quote_position" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "Right", "Left" ],
+                  "label" : "Quote position",
+                  "placeholder" : "Quote position"
+                }
+              },
+              "quote_style" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "dark", "light" ],
+                  "label" : "quote_style",
+                  "placeholder" : "style"
+                }
+              }
+            }
+          },
+          "editorial_look" : {
+            "type" : "Slice",
+            "fieldset" : "Editorial Look",
+            "description" : "A Look section with Title, Text and Portrait image",
+            "icon" : "art_track",
+            "non-repeat" : {
+              "title" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading2",
+                  "label" : "Title",
+                  "placeholder" : "Look's name"
+                }
+              },
+              "text" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph",
+                  "label" : "Text",
+                  "placeholder" : "The look's story"
+                }
+              },
+              "image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 710,
+                    "height" : 920
+                  },
+                  "thumbnails" : [ {
+                    "name" : "Mobile",
+                    "width" : 290,
+                    "height" : 380
+                  } ],
+                  "label" : "Image"
+                }
+              },
+              "text_position" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "Right", "Left" ],
+                  "label" : "Text position",
+                  "placeholder" : "Text position"
+                }
+              }
+            },
+            "repeat" : {
+              "look_link" : {
+                "type" : "Embed",
+                "config" : {
+                  "label" : "Look link",
+                  "placeholder" : "Paste a product's URL"
+                }
+              }
+            }
+          },
+          "text_section" : {
+            "type": "Slice",
+            "fieldset" : "Text Section",
+            "description": "This is a simple text section with rich content.",
+            "icon": "text_fields",
+            "non-repeat": {
+              "text": {
+                "type" : "StructuredText",
+                "config":{
+                  "placeholder": "type your text here...",
+                  "labels" : [ "quote" ]
+                }
+              }
+            }
+          },
+          "image_slider" : {
+            "type" : "Slice",
+            "fieldset" : "Image Slider",
+            "description": "Image carousel.",
+            "icon": "image",
+            "repeat" : {
+              "image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 980,
+                    "height" : 400
                   }
                 }
               }
             }
           },
           "gallery" : {
-            "type" : "Group",
+            "type" : "Slice",
             "fieldset" : "Image Gallery",
-            "config" : {
-              "repeat" : true,
-              "fields" : {
-                "image" : {
-                  "type" : "Image",
-                  "config" : {
-                    "placeholder" : "Image",
-                    "constraint" : {
-                      "width" : 727,
-                      "height" : 402
-                    }
+            "description": "Standard image gallery to display a bunch of photos as a grid.",
+            "icon": "photo_library",
+            "repeat" : {
+              "image" : {
+                "type" : "Image",
+                "config" : {
+                  "placeholder" : "Image",
+                  "constraint" : {
+                    "width" : 727,
+                    "height" : 402
                   }
-                },
-                "description" : {
-                  "type" : "StructuredText",
-                  "config" : {
-                    "placeholder" : "Image Description...",
-                    "single" : "paragraph"
-                  }
-                },
-                "link" : {
-                  "type" : "Link",
-                  "fieldset" : "Optional Link",
-                  "config" : {
-                    "placeholder" : "Optional Link"
-                  }
-                },
-                "linkText" : {
-                  "type" : "Text",
-                  "config" : {
-                    "placeholder" : "Optional Link Text"
-                  }
+                }
+              },
+              "description" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "placeholder" : "Image Description...",
+                  "single" : "paragraph"
+                }
+              },
+              "link" : {
+                "type" : "Link",
+                "fieldset" : "Optional Link",
+                "config" : {
+                  "placeholder" : "Optional Link"
+                }
+              },
+              "linkText" : {
+                "type" : "Text",
+                "config" : {
+                  "placeholder" : "Optional Link Text"
+                }
+              }
+            }
+          },
+          "video" : {
+            "type" : "Slice",
+            "fieldset" : "Video",
+            "description": "Embed video from any source like Youtube, Vimeo, Facebook...",
+            "icon": "ondemand_video",
+            "non-repeat" : {
+              "embed" : {
+                "type" : "Embed",
+                "fieldset" : "Video",
+                "config" : {
+                  "label" : "Video",
+                  "placeholder" : "Paste the YouTube or Vimeo url here..."
                 }
               }
             }

@@ -1,17 +1,8 @@
 .gallery {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
-  -webkit-flex-wrap: wrap;
-   flex-wrap: wrap;
-  -webkit-justify-content: space-between; 
+  flex-wrap: wrap;
   justify-content: space-between; 
   .gallery-item {
-    -webkit-box-flex: 0 1 48%;
-    -moz-box-flex:  0 1 48%;
-    -webkit-flex:  0 1 48%;
-    -ms-flex:  0 1 48%;
     flex: 0 1 48%;
   }
   .gallery-link {
