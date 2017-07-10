@@ -116,7 +116,7 @@
             "fieldset" : "CTA Banner",
             "description": "Embed video from any source like Youtube, Vimeo, Facebook...",
             "icon": "ondemand_video",
-            "repeat" : {
+            "nonrepeat" : {
               "title" : {
                 "type" : "StructuredText",
                 "config" : {

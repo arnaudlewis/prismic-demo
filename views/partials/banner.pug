@@ -1,9 +1,7 @@
-- var banner = slice.value[0]
-
 section.banner.content-section
-  img(src=banner.image.url)
+  img(src=slice.primary.image.url)
   div.cta-text
-    != RichText.asText(banner.title)
-  if banner.linkText[0].text
-    a.cta-button(href=Link.url(banner.link, ctx.linkResolver))
-      != RichText.asHtml(banner.linkText, ctx.linkResolver)
+    != RichText.asText(slice.primary.title)
+  if slice.primary.linkText[0].text
+    a.cta-button(href=Link.url(slice.primary.link, ctx.linkResolver))
+      != RichText.asHtml(slice.primary.linkText, ctx.linkResolver)
