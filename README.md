@@ -39,7 +39,10 @@ It's meant to work with API v2 libs here:
 > [GeoPoint](#geopoint) <br />
 > [Slices](#slices) <br />
 
-[4. License](#license)
+[4. Implement I18N](#implement-i18n)
+-----------------------------------------------------
+
+[5. License](#license)
 -----------------------------------------------------
 
 ===================================================
@@ -493,6 +496,15 @@ doc.contentAsSlices.map((slice) => {
 })
 
 ```
+
+### Implement i18n
+
+The localization is implemented out of the box.
+You got 4 things to check if you wanna customize it:
+- **i18n.json**: It's a configuration file that allow you to declare the list of language that you wanna support in your project in addition to the default language.
+- **I18NUrl(partialURL?: String) => String**: It's a helper to build your URL. You just provide a url and the helper with prefix it with a regex to match the declared language from **i18n.json**. It's optional so you can provide anything and it will match every i18n URLs. It can be useful for middlewares.
+- **I18NConfig(request: Request, options?: Object) => String**: It's a helper that help you build your queries configuration. It will take a request to get the language automatically but also an optional object with custom options that will be merged all together.
+- **LinkResolver**: Don't forget to update the linkResolver to add the language in the url. There's already an example. you have a property **lang** in each documentLink.
 
 ### License
 
