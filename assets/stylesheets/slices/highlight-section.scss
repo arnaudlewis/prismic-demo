@@ -38,7 +38,7 @@
     }
     
     .action {
-      @include button($primary: #e55512);
+      @include button($primary: #f05033, $primaryHover: white, $secondaryHover: #f05033, $borderHover: #f05033);
     }
   }
 }

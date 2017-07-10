@@ -4,5 +4,5 @@ if ( slice.slice_label )
 else 
   - var sectionClass = "text-section-1col"
 
-section.content-section(class=sectionClass)
+section.text-section(class=sectionClass)
   != RichText.asHtml(slice.primary.text, ctx.linkResolver)
