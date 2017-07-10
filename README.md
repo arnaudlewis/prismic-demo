@@ -526,6 +526,7 @@ npm run dev
 Stylesheets are written with the preprocessor sass in `scss` format.
 They are localized in `./assets/stylesheets`.
 You must split each slice in a file to simplify modularity and public sharing.
+Don't bother to prefix css properties for each browser, it's already done with autoprefixer when you start the project in dev mode.
 
 #### Javascript
 Since there is no complex javascript required yet, you only have one file `./public/javascript/main.js` to interact directly with the DOM and make any js client code.
