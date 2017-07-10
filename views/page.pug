@@ -10,17 +10,19 @@ block body
     -// Display the slices
     for slice in page.data.body
       case slice.slice_type
-        when 'textSection'
-          include ./partials/text-section.pug
-        when 'fullWidthImage'
-          include ./partials/full-width-image.pug
-        when 'slider'
-          include ./partials/slider.pug
-        when 'video'
-          include ./partials/video.pug
+        when 'highlight-section'
+          include ./partials/highlight-section.pug
         when 'banner'
           include ./partials/banner.pug
-        when 'highlight'
-          include ./partials/highlight.pug
+        when 'banner-look'
+          include ./partials/banner-look.pug
+        when 'editorial-look'
+          include ./partials/editorial-look.pug
+        when 'text-section'
+          include ./partials/text-section.pug
+        when 'image-slider'
+          include ./partials/image-slider.pug 
         when 'gallery'
           include ./partials/gallery.pug
+        when 'video'
+          include ./partials/video.pug
