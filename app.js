@@ -12,8 +12,8 @@ function I18NUrl(urlPart) {
   return `/:lang(${I18N.languages.join('|')})${urlPart || ''}`;
 }
 
-function I18NConfig(req) {
-  return {lang: req.params.lang};
+function I18NConfig(req, options) {
+  return Object.assign(options || {}, {lang: req.params.lang});
 }
 
 app.listen(PORT, () => {
