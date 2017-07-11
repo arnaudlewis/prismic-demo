@@ -2,12 +2,12 @@ extends ./layout.pug
 
 block variables
   - var nav_class = 'dark'
-  - var wio_id = page.id
+  - var activeDoc = page
 
 block body
 
   -// Content Section
-  div.grid-container(data-wio-id=page.id)
+  div.grid-container
 
     -// Display the slices
     for slice in page.data.body

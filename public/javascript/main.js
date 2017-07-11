@@ -11,4 +11,11 @@ $(document).ready(function() {
     pauseOnHover: true,
     pause: 6000,
   });
+
+  $('.language-selector select').on('change', function(event) {
+    const $select = $(this);
+    const $option = $select.find("option:selected", this);
+    const url = $option.attr('href');
+    window.location.href = url;
+  });
 });

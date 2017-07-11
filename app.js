@@ -9,7 +9,7 @@ const Cookies = require('cookies');
 const I18N = require('./i18n.json');
 //provide a lang parameter in the route
 function I18NUrl(urlPart) {
-  return `/:lang(${I18N.languages.join('|')})${urlPart || ''}`;
+  return `/:lang(${I18N.languages.map(l => l.key).join('|')})${urlPart || ''}`;
 }
 
 function I18NConfig(req, options) {
@@ -45,6 +45,12 @@ app.use((req, res, next) => {
     //next with params handle error natively in express
     next(error.message);
   });
+});
+
+//middleware to setup I18N config for templates
+app.use(I18NUrl(), (req, res, next) => {
+  res.locals.I18N = Object.assign(I18N, {current: req.params.lang});
+  next();
 });
 
 //Middleware that query menu in prismic for each GET request

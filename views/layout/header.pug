@@ -9,3 +9,6 @@ header(class=[nav_class || '', "site-header", "grid-container"].join(' '))
           li
             a(href=Link.url(linkItem.link, ctx.linkResolver))
               != linkItem.label
+        
+        li.lang
+          include ./language-selector
