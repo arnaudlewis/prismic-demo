@@ -60,7 +60,7 @@ npm install -g prismic-cli
 
 - create project with prismic theme:
 ```sh
-prismic theme https://github.com/arnaudlewis/prismic-demo
+prismic theme https://github.com/prismicio/prismic-demo
 ```
 
 #### NPM
