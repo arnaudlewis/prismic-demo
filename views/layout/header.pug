@@ -1,5 +1,6 @@
 header(class=[nav_class || '', "site-header", "grid-container"].join(' '))
-  a(href='./')
+  - var homeUrl = `/${I18N.current}`;
+  a(href=homeUrl)
     .logo Unknown
   
   nav
