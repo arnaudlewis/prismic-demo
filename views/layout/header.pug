@@ -1,15 +1,5 @@
-header(class=[nav_class || '', "site-header", "grid-container"].join(' '))
-  - var homeUrl = `/${I18N.current}`;
-  a(href=homeUrl)
-    .logo Unknown
-  
+header.site-header.grid-container  
   nav
-    ul
-      if menu
-        each linkItem in menu.data.menuLinks
-          li
-            a(href=Link.url(linkItem.link, ctx.linkResolver))
-              != linkItem.label
-        
-        li.lang
-          include ./language-selector
+    ul  
+      li.lang
+        include ./language-selector
